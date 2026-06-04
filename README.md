@@ -3,32 +3,24 @@
 Use gamemodes like <b>Custom</b> , <b>Casual</b> or <b>Deathmatch</b> for the plugin to work properly.<br>
 Designed for <a href="https://github.com/roflmuffin/CounterStrikeSharp">CounterStrikeSharp</a> framework<br>
 <br>
-<a href="https://buymeacoffee.com/sourcefactory">
-<img src="https://img.buymeacoffee.com/button-api/?text=Support%20Me&emoji=%F0%9F%9A%80&slug=sourcefactory&button_colour=e6005c&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" />
-</a>
-</p>
-
-## [Documentation/Wiki](https://docs.sourcefactory.eu/cs2-plugins/deathmatch)
-### Discord Support Server
-[<img src="https://discordapp.com/api/guilds/1149315368465211493/widget.png?style=banner2">](https://discord.gg/Tzmq98gwqF)
 
 ### Main features
-- [x] [Weapon Selection](https://docs.sourcefactory.eu/cs2-plugins/deathmatch/weapons-selection)
-- [x] [Creating Custom Modes](https://docs.sourcefactory.eu/cs2-plugins/deathmatch/creating-custom-modes)
-  - [x] [With Examples](https://docs.sourcefactory.eu/cs2-plugins/deathmatch/creating-custom-modes#examples)
-- [x] [Weapons Restrict](https://docs.sourcefactory.eu/cs2-plugins/deathmatch/weapons-restrict)
+- [x] Weapon Selection
+- [x] Creating Custom Modes
+  - [x] With Examples
+- [x] Weapons Restrict
 - [x] Spawns Editor
-- [x] [Configuration](https://docs.sourcefactory.eu/cs2-plugins/deathmatch/configuration)
-  - [x] [General Settings](https://docs.sourcefactory.eu/cs2-plugins/deathmatch/configuration#general-settings-1)
-  - [x] [Gameplay Settings](https://docs.sourcefactory.eu/cs2-plugins/deathmatch/configuration#gameplay-settings-1)
-  - [x] [Sounds Settings](https://docs.sourcefactory.eu/cs2-plugins/deathmatch/configuration#sounds-settings-1)
-  - [x] [Custom Commands](https://docs.sourcefactory.eu/cs2-plugins/deathmatch/configuration#custom-commands-1)
-  - [x] [Players Gameplay Settings](https://docs.sourcefactory.eu/cs2-plugins/deathmatch/configuration#players-gameplay-settings-1)
+- [x] Configuration
+  - [x] General Settings
+  - [x] Gameplay Settings
+  - [x] Sounds Settings
+  - [x] Custom Commands
+  - [x] Players Gameplay Settings
     - [x] Spawn Protection
     - [x] Respawn Time
     - [x] Refill Ammo
     - [x] Refill Health
-  - [x] [Client Preferences](https://docs.sourcefactory.eu/cs2-plugins/deathmatch/configuration#players-gameplay-settings-1)
+  - [x] Client Preferences
     - [x] Kill Sound
     - [x] Headshot Kill Sound
     - [x] Knife Kill Sound
@@ -37,10 +29,8 @@ Designed for <a href="https://github.com/roflmuffin/CounterStrikeSharp">CounterS
     - [x] Hud Messages
     - [x] Damage Info
 - [x] VIP Support
-- [x] [Admin & Players Commands](https://docs.sourcefactory.eu/cs2-plugins/deathmatch/commands)
+- [x] Admin & Players Commands
 
-### Addons/Modules
-- [Limited Zones](https://docs.sourcefactory.eu/deathmatch/modules/limited-zones)
 
 ### Installation
 1. Download the latest verison - https://github.com/NockyCZ/CS2-Deathmatch/releases
