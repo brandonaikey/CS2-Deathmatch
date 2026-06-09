@@ -175,7 +175,7 @@ public class HitSound
     // sounds/player/taunt_clap_01.vsnd_c
 
     [JsonPropertyName("Enabled")] public bool Enabled { get; set; } = true;
-    [JsonPropertyName("Sound path")] public string Path { get; set; } = "sounds/ui/csgo_ui_contract_type2.vsnd_c";
+    [JsonPropertyName("Sound path")] public string Path { get; set; } = "sounds/training/timer_bell.vsnd_c";
     [JsonPropertyName("Default value")] public bool DefaultValue { get; set; } = false;
     [JsonPropertyName("Only for VIP")] public bool OnlyVIP { get; set; } = false;
     [JsonPropertyName("Command Shortcuts")] public List<string> Shotcuts { get; set; } = new();
@@ -207,7 +207,7 @@ public class KillSound
 public class HSKillSound
 {
     [JsonPropertyName("Enabled")] public bool Enabled { get; set; } = true;
-    [JsonPropertyName("Sound path")] public string Path { get; set; } = "sounds/buttons/bell1.vsnd_c";
+    [JsonPropertyName("Sound path")] public string Path { get; set; } = "sounds/training/bell_impact.vsnd_c";
     [JsonPropertyName("Default value")] public bool DefaultValue { get; set; } = false;
     [JsonPropertyName("Only for VIP")] public bool OnlyVIP { get; set; } = false;
     [JsonPropertyName("Command Shortcuts")] public List<string> Shotcuts { get; set; } = new();
