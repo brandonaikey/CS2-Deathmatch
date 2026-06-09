@@ -50,7 +50,7 @@ namespace Deathmatch
                 else if (!matches.Any())
                 {
                     if (!string.IsNullOrEmpty(Config.SoundSettings.CantEquipSound))
-                        player.ExecuteClientCommand("play " + Config.SoundSettings.CantEquipSound);
+                        PlaySound(player, Config.SoundSettings.CantEquipSound);
                     info.ReplyToCommand($"{Localizer["Chat.Prefix"]} {Localizer["Chat.WeaponNotFound", weaponName]}");
                     return;
                 }
@@ -68,14 +68,14 @@ namespace Deathmatch
                 if (data.PrimaryWeapon.TryGetValue(ActiveCustomMode, out var weapon) && weaponName == weapon)
                 {
                     if (!string.IsNullOrEmpty(Config.SoundSettings.CantEquipSound))
-                        player.ExecuteClientCommand("play " + Config.SoundSettings.CantEquipSound);
+                        PlaySound(player, Config.SoundSettings.CantEquipSound);
                     info.ReplyToCommand($"{Localizer["Chat.Prefix"]} {Localizer["Chat.WeaponsIsAlreadySet", localizerWeaponName]}");
                     return;
                 }
                 if (CheckIsWeaponRestricted(weaponName, IsVIP, player.Team, ActiveMode.PrimaryWeapons, ActiveCustomMode, true))
                 {
                     if (!string.IsNullOrEmpty(Config.SoundSettings.CantEquipSound))
-                        player.ExecuteClientCommand("play " + Config.SoundSettings.CantEquipSound);
+                        PlaySound(player, Config.SoundSettings.CantEquipSound);
 
                     (int NonVIP, int VIP) restrictInfo = GetRestrictData(weaponName, player.Team);
                     info.ReplyToCommand($"{Localizer["Chat.Prefix"]} {Localizer["Chat.WeaponIsRestricted", localizerWeaponName, GetWeaponRestrictLozalizer(restrictInfo.NonVIP), GetWeaponRestrictLozalizer(restrictInfo.VIP)]}");
@@ -116,14 +116,14 @@ namespace Deathmatch
                 if (data.SecondaryWeapon.TryGetValue(ActiveCustomMode, out var weapon) && weaponName == weapon)
                 {
                     if (!string.IsNullOrEmpty(Config.SoundSettings.CantEquipSound))
-                        player.ExecuteClientCommand("play " + Config.SoundSettings.CantEquipSound);
+                        PlaySound(player, Config.SoundSettings.CantEquipSound);
                     info.ReplyToCommand($"{Localizer["Chat.Prefix"]} {Localizer["Chat.WeaponsIsAlreadySet", localizerWeaponName]}");
                     return;
                 }
                 if (CheckIsWeaponRestricted(weaponName, IsVIP, player.Team, ActiveMode.SecondaryWeapons, ActiveCustomMode, false))
                 {
                     if (!string.IsNullOrEmpty(Config.SoundSettings.CantEquipSound))
-                        player.ExecuteClientCommand("play " + Config.SoundSettings.CantEquipSound);
+                        PlaySound(player, Config.SoundSettings.CantEquipSound);
 
                     (int NonVIP, int VIP) restrictInfo = GetRestrictData(weaponName, player.Team);
                     info.ReplyToCommand($"{Localizer["Chat.Prefix"]} {Localizer["Chat.WeaponIsRestricted", localizerWeaponName, GetWeaponRestrictLozalizer(restrictInfo.NonVIP), GetWeaponRestrictLozalizer(restrictInfo.VIP)]}");
@@ -161,7 +161,7 @@ namespace Deathmatch
             else
             {
                 if (!string.IsNullOrEmpty(Config.SoundSettings.CantEquipSound))
-                    player.ExecuteClientCommand("play " + Config.SoundSettings.CantEquipSound);
+                    PlaySound(player, Config.SoundSettings.CantEquipSound);
                 string localizerWeaponName = Localizer[weaponName];
                 info.ReplyToCommand($"{Localizer["Chat.Prefix"]} {Localizer["Chat.WeaponIsDisabled", localizerWeaponName]}");
                 return;

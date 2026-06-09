@@ -145,6 +145,14 @@ public partial class Deathmatch : BasePlugin, IPluginConfig<DeathmatchConfig>
 
         return result;
     }
+
+    public void PlaySound(CCSPlayerController player, string soundPath)
+    {
+        var filter = new RecipientFilter();
+        filter.Add(player);
+        player.EmitSound(soundPath, filter);
+    }
+    
     public override void Load(bool hotReload)
     {
         var API = new Deathmatch();
@@ -581,7 +589,7 @@ public partial class Deathmatch : BasePlugin, IPluginConfig<DeathmatchConfig>
             if (!p.IsBot)
             {
                 if (!string.IsNullOrEmpty(Config.SoundSettings.NewModeSound))
-                    p.ExecuteClientCommand("play " + Config.SoundSettings.NewModeSound);
+                    PlaySound(p, Config.SoundSettings.NewModeSound);
                 p.GiveNamedItem("weapon_knife");
             }
             if (Config.Gameplay.RespawnPlayersAtNewMode)

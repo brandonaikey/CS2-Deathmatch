@@ -155,11 +155,11 @@ namespace Deathmatch
 				bool IsKnifeKill = @event.Weapon.Contains("knife") || @event.Weapon.Contains("bayonet");
 
 				if (IsHeadshot && GetPrefsValue(attackerData, "HeadshotKillSound", Config.PlayersPreferences.HSKillSound.DefaultValue))
-					attacker.ExecuteClientCommand("play " + Config.PlayersPreferences.HSKillSound.Path);
+					PlaySound(attacker, Config.PlayersPreferences.HSKillSound.Path);
 				else if (IsKnifeKill && GetPrefsValue(attackerData, "KnifeKillSound", Config.PlayersPreferences.KnifeKillSound.DefaultValue))
-					attacker.ExecuteClientCommand("play " + Config.PlayersPreferences.KnifeKillSound.Path);
+					PlaySound(attacker, Config.PlayersPreferences.KnifeKillSound.Path);
 				else if (GetPrefsValue(attackerData, "KillSound", Config.PlayersPreferences.KillSound.DefaultValue))
-					attacker.ExecuteClientCommand("play " + Config.PlayersPreferences.KillSound.Path);
+					PlaySound(attacker, Config.PlayersPreferences.KillSound.Path);
 
 				var Health = IsHeadshot
 				? (IsVIP ? Config.PlayersSettings.VIP.HeadshotHealth : Config.PlayersSettings.NonVIP.HeadshotHealth)
@@ -245,23 +245,23 @@ namespace Deathmatch
 							damageInfo.Hits++;
 						}
 						if (GetPrefsValue(attackerData, "HitSound", Config.PlayersPreferences.HitSound.DefaultValue) && (!@event.Weapon.Contains("knife") || !@event.Weapon.Contains("bayonet")))
-							attacker.ExecuteClientCommand("play " + Config.PlayersPreferences.HitSound.Path);
+							PlaySound(attacker, Config.PlayersPreferences.HitSound.Path);
 					}
 				}
 				else
 				{
 					if (@event.Hitgroup != 1)
 					{
-						if ((!@event.Weapon.Contains("knife") || !@event.Weapon.Contains("bayonet")) && GetPrefsValue(attackerData, "HitSound", Config.PlayersPreferences.HitSound.DefaultValue))
-						{
-							if (!GetPrefsValue(attackerData, "OnlyHS", Config.PlayersPreferences.OnlyHS.DefaultValue))
-								attacker.ExecuteClientCommand("play " + Config.PlayersPreferences.HitSound.Path);
-						}
-					}
-					else if (GetPrefsValue(attackerData, "HitSound", Config.PlayersPreferences.HitSound.DefaultValue))
-					{
-						attacker.ExecuteClientCommand("play " + Config.PlayersPreferences.HitSound.Path);
-					}
+ 						if ((!@event.Weapon.Contains("knife") || !@event.Weapon.Contains("bayonet")) && GetPrefsValue(attackerData, "HitSound", Config.PlayersPreferences.HitSound.DefaultValue))
+ 						{
+ 							if (!GetPrefsValue(attackerData, "OnlyHS", Config.PlayersPreferences.OnlyHS.DefaultValue))
+ 								PlaySound(attacker, Config.PlayersPreferences.HitSound.Path);
+ 						}
+ 					}
+ 					else if (GetPrefsValue(attackerData, "HitSound", Config.PlayersPreferences.HitSound.DefaultValue))
+ 					{
+ 						PlaySound(attacker, Config.PlayersPreferences.HitSound.Path);
+ 					}
 
 					if (Config.PlayersPreferences.DamageInfo.Enabled && GetPrefsValue(attackerData, "DamageInfo", Config.PlayersPreferences.DamageInfo.DefaultValue))
 					{
@@ -421,7 +421,7 @@ namespace Deathmatch
 			if (ActiveMode.RandomWeapons)
 			{
 				if (!string.IsNullOrEmpty(Config.SoundSettings.CantEquipSound))
-					player.ExecuteClientCommand("play " + Config.SoundSettings.CantEquipSound);
+					PlaySound(player, Config.SoundSettings.CantEquipSound);
 				player.PrintToChat($"{Localizer["Chat.Prefix"]} {Localizer["Chat.WeaponsSelectIsDisabled"]}");
 				hook.SetReturn(AcquireResult.AlreadyPurchased);
 				return HookResult.Handled;
@@ -432,7 +432,7 @@ namespace Deathmatch
 				if (!player.IsBot)
 				{
 					if (!string.IsNullOrEmpty(Config.SoundSettings.CantEquipSound))
-						player.ExecuteClientCommand("play " + Config.SoundSettings.CantEquipSound);
+						PlaySound(player, Config.SoundSettings.CantEquipSound);
 
 					string replacedweaponName = Localizer[weaponName];
 					player.PrintToChat($"{Localizer["Chat.Prefix"]} {Localizer["Chat.WeaponIsDisabled", replacedweaponName]}");
@@ -450,7 +450,7 @@ namespace Deathmatch
 				if (CheckIsWeaponRestricted(weaponName, IsVIP, player.Team, ActiveMode.PrimaryWeapons, ActiveCustomMode, IsPrimary))
 				{
 					if (!string.IsNullOrEmpty(Config.SoundSettings.CantEquipSound))
-						player.ExecuteClientCommand("play " + Config.SoundSettings.CantEquipSound);
+						PlaySound(player, Config.SoundSettings.CantEquipSound);
 
 					(int NonVIP, int VIP) restrictInfo = GetRestrictData(weaponName, player.Team);
 					player.PrintToChat($"{Localizer["Chat.Prefix"]} {Localizer["Chat.WeaponIsRestricted", localizerWeaponName, GetWeaponRestrictLozalizer(restrictInfo.NonVIP), GetWeaponRestrictLozalizer(restrictInfo.VIP)]}");
