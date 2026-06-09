@@ -76,7 +76,8 @@ public class Database
 public class SoundSettings
 {
     [JsonPropertyName("Weapon Cant Equip Sound")] public string CantEquipSound { get; set; } = "sounds/ui/weapon_cant_buy.vsnd_c";
-    [JsonPropertyName("New Mode Sound")] public string NewModeSound { get; set; } = "sounds/music/3kliksphilip_01/bombtenseccount.vsnd_c";
+    [JsonPropertyName("New Mode Sound")] public string NewModeSound { get; set; } = "sounds/ui/bonus_alert_startvsnd_c";
+    [JsonPropertyName("New Mode Countdown Sound")] public string NewModeCountdownSound { get; set; } = "sounds/ui/beep07.vsnd_c";
     //sounds/music/3kliksphilip_01/bombtenseccount.vsnd_c
     //sounds/music/halflife_alyx_01/bombplanted.vsnd_c
 }

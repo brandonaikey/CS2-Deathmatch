@@ -280,6 +280,9 @@ public partial class Deathmatch : BasePlugin, IPluginConfig<DeathmatchConfig>
 
                                     if (RemainingTime <= Config.Gameplay.NewModeCountdown && Config.Gameplay.NewModeCountdown > 0)
                                     {
+                                        if (RemainingTime > 0 && !string.IsNullOrEmpty(Config.SoundSettings.NewModeCountdownSound))
+                                            PlaySound(p, Config.SoundSettings.NewModeCountdownSound);
+
                                         if (RemainingTime == 0)
                                         {
                                             if (Config.Gameplay.HudType == 0)
