@@ -16,3 +16,6 @@
 # Package files
 *.nupkg
 *.snupkg
+
+# Jetbrains IDEs
+.idea
