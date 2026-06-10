@@ -150,7 +150,7 @@ public partial class Deathmatch : BasePlugin, IPluginConfig<DeathmatchConfig>
     {
         var filter = new RecipientFilter();
         filter.Add(player);
-        player.EmitSound(soundPath, filter);
+        _ = player.EmitSound(soundPath, filter);
     }
     
     public override void Load(bool hotReload)
